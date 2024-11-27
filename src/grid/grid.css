@@ -1,0 +1,443 @@
+:root {
+  --primary-color: #007bff;
+  --secondary-color: #6c757d;
+  --background-color: #f4f4f9;
+  --card-background: #fff;
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --border-radius: 8px;
+  --transition-duration: 0.3s;
+  --hover-shadow: rgba(0, 0, 0, 0.15);
+}
+
+/* Switch Toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #007bff;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
+}
+
+:root[data-theme="light"] {
+  --bg-color: white;
+  --text-color: black;
+}
+
+:root[data-theme="dark"] {
+  --bg-color: #2e2e2e;
+  --text-color: white;
+}
+
+.dark-theme .ag-theme-alpine {
+  background-color: #1f1f1f;
+  color: white;
+}
+
+.dark-theme .ag-cell {
+  background-color: #2b2b2b;
+  color: white;
+}
+
+.dark-theme .stats-card,
+.dark-theme .dashboard,
+.dark-theme .activity-log {
+  background-color: #333;
+  color: white;
+}
+
+.dark-theme {
+  --background-color: #333;
+  --card-background: #444;
+  --card-shadow: rgba(255, 255, 255, 0.1);
+  --primary-color: #1e90ff;
+  --secondary-color: #b0b0b0;
+}
+
+body {
+  font-family: "Arial", sans-serif;
+  color: #333;
+  background-color: var(--background-color);
+  margin: 0;
+  padding: 0;
+  color: var(--secondary-color);
+  transition: background-color var(--transition-duration);
+}
+
+.admin-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+  background-color: var(--background-color);
+  height: 100vh;
+  box-sizing: border-box;
+  transition: background-color var(--transition-duration);
+}
+
+.dashboard {
+  display: flex;
+  gap: 20px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.stats-card {
+  background: var(--card-background);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px var(--card-shadow);
+  text-align: center;
+  flex: 1 1 200px;
+  min-width: 200px;
+  transition: box-shadow var(--transition-duration);
+}
+
+.stats-card:hover {
+  box-shadow: 0 6px 12px var(--hover-shadow);
+}
+
+.stats-card h3 {
+  margin: 0 0 10px;
+  font-size: 1.2em;
+  color: var(--secondary-color);
+}
+
+.stats-card p {
+  margin: 0;
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.activity-log {
+  background: var(--card-background);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px var(--card-shadow);
+  transition: box-shadow var(--transition-duration);
+  flex: 1 1 100%;
+}
+
+.activity-log:hover {
+  box-shadow: 0 6px 12px var(--hover-shadow);
+}
+
+.activity-log h3 {
+  margin: 0 0 10px;
+  font-size: 1.2em;
+  color: var(--secondary-color);
+}
+
+.activity-log ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.activity-log ul li {
+  margin-bottom: 10px;
+}
+
+.user-management {
+  background: var(--card-background);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px var(--card-shadow);
+  transition: box-shadow var(--transition-duration);
+  flex: 1 1 100%;
+}
+
+.user-management:hover {
+  box-shadow: 0 6px 12px var(--hover-shadow);
+}
+
+.user-management h3 {
+  margin: 0 0 20px;
+  font-size: 1.2em;
+  color: var(--secondary-color);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.edit-button,
+.delete-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-duration);
+}
+
+.edit-button {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.edit-button:hover {
+  background-color: darken(var(--primary-color), 10%);
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-button:hover {
+  background-color: darken(#dc3545, 10%);
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--card-background);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px var(--card-shadow);
+  transition: box-shadow var(--transition-duration);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
+
+.edit-form label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.edit-form input {
+  padding: 5px;
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--border-radius);
+  width: 100%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button-container button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-duration);
+}
+
+.button-container button:first-child {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.button-container button:first-child:hover {
+  background-color: darken(var(--primary-color), 10%);
+}
+
+.button-container button:last-child {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
+.button-container button:last-child:hover {
+  background-color: darken(var(--secondary-color), 10%);
+}
+
+.charts-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 200px;
+}
+
+.chart {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 200px;
+}
+
+/* Additional styles for Profile UI, Logout, and Add buttons */
+.profile-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* Aligns items to the start of the container */
+  gap: 20px; /* Space between the profile, logout, and add button */
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: var(--card-background);
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px var(--card-shadow);
+}
+
+.profile-details {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between profile picture and name */
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.profile-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.logout-button,
+.add-button {
+  padding: 8px 16px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-duration);
+}
+
+.logout-button:hover,
+.add-button:hover {
+  background-color: darken(var(--primary-color), 10%);
+}
+
+/* Keep these buttons in line with the rest */
+.logout-button {
+  background-color: #dc3545; /* Override primary color for logout button */
+}
+
+.logout-button:hover {
+  background-color: darken(#dc3545, 10%);
+}
+
+.add-button {
+  background-color: var(--primary-color);
+}
+
+.add-button:hover {
+  background-color: darken(var(--primary-color), 10%);
+}
+
+.stats-card,
+.activity-log,
+.user-management,
+.edit-form {
+  background: var(--card-background);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px var(--card-shadow);
+  transition: box-shadow var(--transition-duration);
+}
+
+.stats-card:hover,
+.activity-log:hover,
+.user-management:hover {
+  box-shadow: 0 6px 12px var(--hover-shadow);
+}
+
+.stats-card h3,
+.activity-log h3,
+.user-management h3 {
+  color: var(--secondary-color);
+}
+
+.stats-card p,
+.edit-form input,
+.button-container button {
+  color: var(--primary-color);
+}
+
+/* Specific styles for buttons */
+.edit-button,
+.delete-button,
+.add-button,
+.logout-button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-duration);
+}
+
+.edit-button {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.edit-button:hover {
+  background-color: darken(var(--primary-color), 10%);
+}
+
+.delete-button {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.delete-button:hover {
+  background-color: darken(#dc3545, 10%);
+}
+
+.logout-button {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.logout-button:hover {
+  background-color: darken(#dc3545, 10%);
+}
+
+.add-button {
+  background-color: var(--primary-color);
+  color: #fff;
+}
+
+.add-button:hover {
+  background-color: darken(var(--primary-color), 10%);
+}
